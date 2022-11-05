@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import os
+import sqlite3
 
 url = os.getenv("BASE_URL")
 res = requests.get(url)
