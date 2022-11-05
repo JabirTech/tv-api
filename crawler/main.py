@@ -14,4 +14,11 @@ for datum in data:
     image = datum.img['data-src']
     watch_link = datum.a['href']
 
-    print(name, image, watch_link)
+    connection = sqlite3.connect(os.path.join(os.getcwd(), 'db.sqlite3'))
+    cur = connection.cursor()
+    query = f"INSERT INTO movies VALUES ('{name}', '{image}', '{watch_link}')"
+    cur.execute(query)
+    cur.close()
+    connection.commit()
+    
+    print(f'{name} added to the DB')
