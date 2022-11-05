@@ -7,4 +7,10 @@ res = requests.get(url)
 data = BeautifulSoup(res.text, 'lxml')
 data = data.find_all('div', class_="flw-item")
 
-print(len(data))
+for datum in data:
+    name = datum.find('h3', class_="film-name")
+    name = name.text
+    image = datum.img['data-src']
+    watch_link = datum.a['href']
+
+    print(name, image, watch_link)
