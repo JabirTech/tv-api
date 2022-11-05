@@ -11,6 +11,7 @@ data = data.find_all('div', class_="flw-item")
 for datum in data:
     name = datum.find('h3', class_="film-name")
     name = name.text
+    name = name.replace('\n', '')
     image = datum.img['data-src']
     watch_link = datum.a['href']
 
