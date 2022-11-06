@@ -14,6 +14,15 @@ def get_movie_lists():
     return res
 
 result = get_movie_lists()
+results_processed = []
+
+for r in result:
+    res = {}
+    res['name'] = r[0]
+    res['poster'] = r[1]
+    res['url'] = r[2]
+
+    results_processed.append(res)
 
 app = Flask(__name__)
 
