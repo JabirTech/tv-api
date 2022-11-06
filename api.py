@@ -12,3 +12,14 @@ def get_movie_lists():
     connection.commit()
 
     return res
+
+result = get_movie_lists()
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    pass 
+
+if __name__ == "__main__":
+    app.run(debug=True)
