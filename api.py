@@ -28,7 +28,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    pass 
+    global results_processed
+
+    return {"results" : results_processed}
 
 if __name__ == "__main__":
     app.run(debug=True)
